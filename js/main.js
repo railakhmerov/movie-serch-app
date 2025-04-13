@@ -11,7 +11,7 @@ searchFilmBtnNode.addEventListener('click', function() {
     const inputValue = inputFilmNameNode.value;
 
     // console.log("message");
-    fetch(`http://www.omdbapi.com/?t=${inputValue}&apikey=d69b78ae&`)
+    fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=d69b78ae&`)
         .then(data => data.json())
         .then(json => {
             console.log(json);
