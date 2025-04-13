@@ -1,7 +1,6 @@
-const inputFilmNameNode = document.querySelector('.js-header__input')
-const searchFilmBtnNode = document.querySelector('.js-header__btn')
+const inputFilmNameNode = document.querySelector('.js-main__input')
+const searchFilmBtnNode = document.querySelector('.js-main__search-film-btn')
 const allFilmsNode = document.querySelector('.js-films');
-let film = document.querySelector('.js-film');
 
 const filmsList = [];
 
@@ -14,22 +13,39 @@ searchFilmBtnNode.addEventListener('click', function() {
         .then(json => {
             const fullFilmsArray = json.Search;
             console.log(fullFilmsArray);
-
-            fullFilmsArray.forEach(element => { // Перебираем массив из объектов, внутри которых фильмы и сериалы
-                allFilmsNode.innerHTML += `
-                    <a href="#" class="film js-film">
-                        <div class="film__image">
-                            <img src="${element.Poster}" alt="film-image">
-                        </div>
-                        <div class="film__info">
-                            <h2 class="film-name">${element.Title}</h2>
-                            <h3 class="film-year">${element.Year}</h3>
-                            <h4 class="film-or-serial">${element.Type}</h4>
-                        </div>
-                    </a>
-                `;
-            });
+            
+            arraySearch(fullFilmsArray);
         })
 
-    inputFilmNameNode.value = '';
+    clearInput(inputFilmNameNode); // очищаем input
+    allFilmsNode.innerHTML = ''; // Очищаем прошлый список
 });
+
+
+
+
+
+
+
+
+// Функции ----------------------------------------- //
+function arraySearch(fullFilmsArray) { // Перебираем массив из объектов, внутри которых фильмы и сериалы
+    fullFilmsArray.forEach(element => {
+        allFilmsNode.innerHTML += `
+            <a href="#" class="film js-film">
+                <div class="film__image">
+                    <img src="${element.Poster}" alt="film-image">
+                </div>
+                <div class="film__info">
+                    <h2 class="film-name">${element.Title}</h2>
+                    <h3 class="film-year">${element.Year}</h3>
+                    <h4 class="film-or-serial">${element.Type}</h4>
+                </div>
+            </a>
+        `;
+    });
+}
+
+function clearInput(inputFilmNameNode) { // очищаем input
+    inputFilmNameNode.value = '';
+}
