@@ -67,9 +67,9 @@ html, body {
                 flex-direction: column;
                 gap: 5px;
                 height: 600px;
-                overflow: hidden auto;
+                overflow-y: auto;
                 .film {
-                    width: 1000px;
+                    max-width: 1000px;
                     height: 216px;
                     padding: 30px;
                     display: flex;
@@ -85,10 +85,9 @@ html, body {
                         display: flex;
                         flex-direction: column;
                         overflow: auto;
-                        word-break: break-all;
                         color: #000;
                         .film-name {
-                            max-width: 100%;
+                            width: 100%;
                             margin-bottom: 15px;
                             font-size: 32px;
                             font-weight: 800;
@@ -112,6 +111,218 @@ html, body {
             }
             .films::-webkit-scrollbar {
                 display: none;
+            }
+        }
+    }
+}
+
+@media(max-width: 1120px) {
+    .container {
+        width: 700px;
+        margin: 0 auto;
+    }
+    .header {
+        padding-top: 60px;
+        .container {
+            .movie-title {
+                .title {
+                    font-size: 42px;
+                }
+                .subtitle {
+                    font-size: 28px;
+                    color: #ff054c;
+                }
+            }
+        }
+    }
+
+    .main {
+        .container {
+            .main__film-section {
+                .main__search-section {
+                    .main__input {
+                        font-size: 24px;
+                    }
+                    .main__search-film-btn {
+                        font-size: 24px;
+                    }
+                }
+                .films {
+                    .film {
+                        .film__info {
+                            .film-name {
+                                font-size: 30px;
+                            }
+                            .film-year {
+                                font-size: 22px;
+                            }
+                            .film-or-serial {
+                                font-size: 26px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 1024px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+    .header {
+        padding-top: 60px;
+        .container {
+            .movie-title {
+                .title {
+                    font-size: 42px;
+                }
+                .subtitle {
+                    font-size: 28px;
+                    color: #ff054c;
+                }
+            }
+        }
+    }
+
+    .main {
+        .container {
+            .main__film-section {
+                .main__search-section {
+                    .main__input {
+                        width: 600px;
+                        font-size: 24px;
+                    }
+                    .main__search-film-btn {
+                        max-width: 300px;
+                        padding: 10px 30px;
+                        font-size: 24px;
+                    }
+                }
+                .films {
+                    .film {
+                        .film__info {
+                            .film-name {
+                                font-size: 30px;
+                            }
+                            .film-year {
+                                font-size: 22px;
+                            }
+                            .film-or-serial {
+                                font-size: 26px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 640px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .header {
+        padding-top: 60px;
+        .container {
+            .movie-title {
+                .title {
+                    font-size: 32px;
+                }
+                .subtitle {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    .main {
+        .container {
+            .main__film-section {
+                .main__search-section {
+                    .main__input {
+                        width: 600px;
+                        font-size: 20px;
+                    }
+                    .main__search-film-btn {
+                        max-width: 300px;
+                        padding: 10px 25px;
+                        font-size: 20px;
+                    }
+                }
+                .films {
+                    .film {
+                        gap: 35px;
+                        .film__info {
+                            .film-name {
+                                font-size: 24px;
+                            }
+                            .film-year {
+                                font-size: 20px;
+                            }
+                            .film-or-serial {
+                                font-size: 22px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 440px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .header {
+        padding-top: 30px;
+        margin-bottom: 25px;
+        .container {
+            .movie-title {
+                .title {
+                    font-size: 25px;
+                }
+                .subtitle {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .main {
+        .container {
+            .main__film-section {
+                .main__search-section {
+                    gap: 5px;
+                    .main__input {
+                        font-size: 16px;
+                    }
+                    .main__search-film-btn {
+                        padding: 8px 8px;
+                        font-size: 16px;
+                    }
+                }
+                .films {
+                    .film {
+                        .film__info {
+                            .film-name {
+                                font-size: 24px;
+                            }
+                            .film-year {
+                                font-size: 18px;
+                            }
+                            .film-or-serial {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
