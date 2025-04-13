@@ -18,6 +18,21 @@ html, body {
   padding-top: 100px;
   margin-bottom: 48px;
 }
+.header .container .movie-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.header .container .movie-title .title {
+  font-size: 56px;
+  font-weight: 800;
+  color: #b300ff;
+}
+.header .container .movie-title .subtitle {
+  font-size: 38px;
+  color: #ff054c;
+}
+
 .main .container .main__film-section {
   padding: 20px 0;
   display: flex;

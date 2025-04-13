@@ -6,7 +6,11 @@ const filmsList = [];
 
 // События --------------------------------------------- //
 searchFilmBtnNode.addEventListener('click', function() {
-    let inputValue = inputFilmNameNode.value;
+    const inputValue = inputFilmNameNode.value;
+
+    if (inputValue === undefined || inputValue === '') { // Если user ничего не введет
+        return;
+    };
 
     fetch(`https://www.omdbapi.com/?s=${inputValue}&apikey=d69b78ae&`)
         .then(data => data.json())
@@ -18,13 +22,8 @@ searchFilmBtnNode.addEventListener('click', function() {
         })
 
     clearInput(inputFilmNameNode); // очищаем input
-    allFilmsNode.innerHTML = ''; // Очищаем прошлый список
+    clearPastList(allFilmsNode); // Очищаем прошлый список
 });
-
-
-
-
-
 
 
 
@@ -44,8 +43,12 @@ function arraySearch(fullFilmsArray) { // Перебираем массив из
             </a>
         `;
     });
-}
+};
 
 function clearInput(inputFilmNameNode) { // очищаем input
     inputFilmNameNode.value = '';
-}
+};
+
+function clearPastList(allFilmsNode) {
+    allFilmsNode.innerHTML = '';
+};
