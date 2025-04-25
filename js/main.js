@@ -1,5 +1,6 @@
-const inputFilmNameNode = document.querySelector('.js-main__input')
-const searchFilmBtnNode = document.querySelector('.js-main__search-film-btn')
+const inputFilmNameNode = document.querySelector('.js-main__input');
+const searchFilmBtnNode = document.querySelector('.js-main__search-film-btn');
+const noFilmNode = document.querySelector('.js-no-film');
 const allFilmsNode = document.querySelector('.js-films');
 
 const filmsList = [];
@@ -7,15 +8,21 @@ const filmsList = [];
 // События --------------------------------------------- //
 searchFilmBtnNode.addEventListener('click', function() {
     const inputValue = inputFilmNameNode.value;
-
-    if (inputValue === undefined || inputValue === '') { // Если user ничего не введет
-        return;
-    };
+    noSearchResult(inputValue);
+    // if (inputValue === undefined || inputValue === '') { // Если user ничего не введет
+    //     noFilmNode.innerText = "Фильмы не найдены";
+    //     return;
+    // };
 
     fetch(`https://www.omdbapi.com/?s=${inputValue}&apikey=d69b78ae&`)
         .then(data => data.json())
         .then(json => {
+            console.log(json)
             const fullFilmsArray = json.Search;
+            if (fullFilmsArray === undefined) {
+                noSearchResult();
+                return;
+            };
             console.log(fullFilmsArray);
             
             arraySearch(fullFilmsArray);
@@ -28,6 +35,12 @@ searchFilmBtnNode.addEventListener('click', function() {
 
 
 // Функции ----------------------------------------- //
+function noSearchResult(inputValue) {
+    if (inputValue === undefined || inputValue === '') { // Если user ничего не введет
+        noFilmNode.innerText = "Фильмы не найдены";
+        return;
+    };
+};
 function arraySearch(fullFilmsArray) { // Перебираем массив из объектов, внутри которых фильмы и сериалы
     fullFilmsArray.forEach(element => {
         allFilmsNode.innerHTML += `

@@ -61,6 +61,10 @@ html, body {
   color: #fff;
   background-color: #0094FF;
 }
+.main .container .main__film-section .no-film {
+  font-size: 26px;
+  font-weight: 800;
+}
 .main .container .main__film-section .films {
   display: flex;
   flex-direction: column;
@@ -248,4 +252,14 @@ html, body {
   .main .container .main__film-section .films .film .film__info .film-or-serial {
     font-size: 20px;
   }
+}
+.main {
+  padding-top: 60px;
+}
+.main .container .movie__back-to-search {
+  margin-bottom: 105px;
+}
+.main .container .movie-info {
+  display: flex;
+  gap: 90px;
 }/*# sourceMappingURL=main.css.map */
