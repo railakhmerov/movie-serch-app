@@ -204,6 +204,10 @@ html, body {
     padding: 10px 25px;
     font-size: 20px;
   }
+  .main .container .main__film-section .no-film {
+    font-size: 22px;
+    font-weight: 800;
+  }
   .main .container .main__film-section .films .film {
     gap: 35px;
   }
